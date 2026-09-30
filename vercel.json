@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/westway", "permanent": false },
+    { "source": "/index", "destination": "/westway", "permanent": false }
+  ]
+}

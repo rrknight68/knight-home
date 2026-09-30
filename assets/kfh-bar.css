@@ -1,0 +1,44 @@
+/* Knight Family Homes — residence selector bar. Safe to load on Bayshore: every rule is
+   scoped to .kfh-* or body.kfh-has-bar, so it cannot restyle Bayshore content. */
+
+/* ---------- RESIDENCE SELECTOR (persistent, all pages) ---------- */
+.kfh-bar {
+  position: sticky; top: 0; z-index: 150;
+  height: 44px;
+  background: #121110;
+  border-bottom: 1px solid rgba(196,151,58,0.25);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; gap: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.kfh-bar-brand {
+  font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: #E2B86A; text-decoration: none; white-space: nowrap;
+}
+.kfh-bar-tabs { display: flex; align-items: stretch; height: 100%; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.kfh-bar-tabs::-webkit-scrollbar { display: none; }
+.kfh-tab {
+  display: flex; align-items: center; gap: 8px; padding: 0 16px;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400;
+  color: #C9B99A; text-decoration: none; white-space: nowrap;
+  border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+}
+.kfh-tab:hover { color: #E2B86A; }
+.kfh-tab.active { color: #FAF7F2; border-bottom-color: #C4973A; }
+.kfh-badge {
+  font-size: 8px; letter-spacing: 0.16em; padding: 3px 7px; border-radius: 2px;
+  background: rgba(196,151,58,0.18); color: #E2B86A; border: 1px solid rgba(196,151,58,0.4);
+}
+.kfh-badge.alt { background: rgba(42,107,107,0.18); color: #3D8F8F; border-color: rgba(61,143,143,0.4); }
+.kfh-tab-compare { color: #C9B99A; }
+/* Bayshore's own sticky nav sits under the bar; anchors clear both */
+body.kfh-has-bar > nav { top: 44px; }
+body.kfh-has-bar section[id], body.kfh-has-bar div[id].room-tabs-section { scroll-margin-top: 104px; }
+@media (max-width: 768px) {
+  .kfh-bar { padding: 0 12px; gap: 8px; }
+  .kfh-bar-brand { display: none; }
+  .kfh-bar-tabs { width: 100%; justify-content: space-between; }
+  .kfh-tab { padding: 0 8px; font-size: 9px; letter-spacing: 0.1em; gap: 6px; }
+  .kfh-badge { font-size: 7px; padding: 2px 5px; }
+}
+
