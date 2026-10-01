@@ -88,14 +88,36 @@ window.KFH.residences.westway = {
       ['City / ZIP', 'Sarasota, Florida 34236'],
       ['Waterfront', 'Gulf-front (Gulf of Mexico)'],
       ['Lot dimensions', 'TBD — confirm (survey)'],
-      ['Lot area', 'TBD — confirm (survey)'],
+      ['Lot area', '11,656 SF per listing · TBD — confirm (survey)'],
       ['Setbacks', 'TBD — confirm (zoning)'],
-      ['Zoning / height limit', 'TBD — confirm'],
+      ['Zoning / height limit', 'RSF2 per listing · height limit TBD — confirm'],
+      ['Water body fronted', 'Aerial shows the lot on the pass between keys (likely New Pass) · TBD — confirm Gulf vs inlet frontage'],
       ['CCCL (Coastal Construction Control Line)', 'TBD — confirm (FDEP)'],
       ['Flood zone / BFE', 'TBD — confirm (FEMA FIRM + elevation cert.)'],
       ['Existing grade elevations', 'TBD — confirm (topo survey)'],
       ['Geotechnical conditions', 'TBD — confirm (soil borings)']
     ],
+    /* Reference only. Listing figures are third-party marketing data, not survey. */
+    reference: {
+      images: [
+        { src: '/images/westway/site-aerial-close.jpg', title: 'Aerial: lot + immediate neighbors', caption: '~180 m across, centered on the geocoded address point (marker is approximate; not a parcel boundary).', credit: 'USGS / USDA, The National Map Orthoimagery, Mar 2025 · public domain' },
+        { src: '/images/westway/site-aerial-context.jpg', title: 'Aerial: neighborhood + water context', caption: '~900 m across. Shows the water body the lot fronts and the surrounding keys.', credit: 'USGS / USDA, The National Map Orthoimagery, Mar 2025 · public domain' }
+      ],
+      listingFacts: [
+        ['Lot area (listed)', '11,656 SF (0.27 ac)'],
+        ['Zoning (listed)', 'RSF2: single-family'],
+        ['Parcel / APN', '0013070004'],
+        ['Existing structure (listed)', 'House built 1972, renovated 2007: demolition scope TBD'],
+        ['Listing notes', 'Stone-faced perimeter wall + gates; listing states an approved seawall permit']
+      ],
+      listingSource: 'Per MLS TB8437967 as shown on Redfin / brokerage sites, Oct 2026. Marketing data, not survey: verify every figure.',
+      links: [
+        { label: 'Zillow listing search', href: 'https://www.zillow.com/homes/1215-Westway-Dr-Sarasota,-FL-34236_rb/' },
+        { label: 'Redfin listing (photos)', href: 'https://www.redfin.com/FL/Sarasota/1215-Westway-Dr-34236/home/47618327' },
+        { label: 'Sarasota County Property Appraiser', href: 'https://www.sc-pa.com/' }
+      ],
+      listingPhotosNote: 'MLS listing photos are owned by the listing brokerage and are not copied here. View them via the listing links.'
+    },
     note: 'Site conditions are intentionally left unconfirmed. Every TBD item is tracked in Open Decisions until verified by survey, zoning review, FDEP/CCCL review, and geotechnical report.'
   },
 
@@ -416,7 +438,9 @@ window.KFH.residences.westway = {
     { id: 'pool', topic: 'Pool: Option A (elevated infinity) vs Option B (ground-level)', status: 'Open', note: 'A preferred; depends on CCCL, flood, structure, cost.' },
     { id: 'roof', topic: 'Roof terrace', status: 'Open', note: 'Subject to zoning / height limit.' },
     { id: 'cccl', topic: 'CCCL line / flood zone / BFE', status: 'TBD — confirm', note: 'FDEP CCCL + FEMA FIRM + elevation certificate.' },
-    { id: 'setbacks', topic: 'Setbacks + lot dimensions', status: 'TBD — confirm', note: 'Survey + zoning review.' },
+    { id: 'setbacks', topic: 'Setbacks + lot dimensions', status: 'TBD — confirm', note: 'Survey + zoning review. Listing states 11,656 SF lot.' },
+    { id: 'frontage', topic: 'Water frontage: open Gulf vs pass / inlet', status: 'TBD — confirm', note: 'Aerial suggests the lot fronts a pass between keys; affects CCCL, views, wave exposure, and the "Gulf-front" framing.' },
+    { id: 'existing-house', topic: 'Existing 1972 house: demolition + any reuse', status: 'Open', note: 'Per listing. Also confirm the stated approved seawall permit.' },
     { id: 'zoning-height', topic: 'Zoning district + height limit', status: 'TBD — confirm', note: '' },
     { id: 'foundation', topic: 'Foundation type', status: 'Open', note: 'Piles / deep foundation per geotech.' },
     { id: 'generator', topic: 'Generator size (26–40 kW)', status: 'Open', note: 'Per load calculation.' },

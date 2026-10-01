@@ -45,7 +45,19 @@
       '<div class="kfh-room-sum">' + esc(r.summary) + '</div>' + list(r.features) + '</div>';
   }
   function rooms(filter) { return '<div class="kfh-rooms">' + R.rooms.filter(filter).map(roomCard).join('') + '</div>'; }
-  var levelName = { ground: 'Ground', l2: 'Level 2', l3: 'Level 3', roof: 'Roof' };
+  function siteReference(ref) {
+    if (!ref) return '';
+    var out = block(h3('Site Reference · Aerials') + '<div class="kfh-site-imgs">' + ref.images.map(function (im) {
+      return '<figure class="kfh-site-img"><a href="' + esc(im.src) + '" target="_blank" rel="noopener"><img src="' + esc(im.src) + '" alt="' + esc(im.title) + '" loading="lazy"><span class="kfh-site-pin" aria-hidden="true"></span></a>' +
+        '<figcaption><div class="kfh-shot-cat">' + esc(im.title) + '</div><div class="kfh-shot-note">' + esc(im.caption) + '</div><div class="kfh-site-credit">' + esc(im.credit) + '</div></figcaption></figure>';
+    }).join('') + '</div>');
+    out += block(h3('Listing Facts · Unverified') + '<table class="kfh-kv">' + ref.listingFacts.map(function (r) { return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td></tr>'; }).join('') + '</table>' +
+      rule(ref.listingSource, 'Source') +
+      '<div class="kfh-site-links">' + ref.links.map(function (l) { return '<a href="' + esc(l.href) + '" target="_blank" rel="noopener">' + esc(l.label) + ' ↗</a>'; }).join('') + '</div>' +
+      '<p class="kfh-site-credit" style="margin-top:12px">' + esc(ref.listingPhotosNote) + '</p>');
+    return out;
+  }
+  var levelName ={ ground: 'Ground', l2: 'Level 2', l3: 'Level 3', roof: 'Roof' };
 
   /* ---------- section renderers (by type) ---------- */
   var T = {
@@ -66,7 +78,7 @@
     property: function () {
       return block('<table class="kfh-kv">' + R.property.rows.map(function (r) {
         return '<tr><td>' + esc(r[0]) + '</td><td class="' + (isTbd(r[1]) ? 'kfh-tbd' : '') + '">' + esc(r[1]) + '</td></tr>';
-      }).join('') + '</table>' + rule(R.property.note));
+      }).join('') + '</table>' + rule(R.property.note)) + siteReference(R.property.reference);
     },
     vision: function () {
       return block(h3('Design Elements') + chips(R.vision.elements)) +
